@@ -5,10 +5,10 @@
 
 user_input = int(input('Enter number of seconds: '))
 
-time_hours = int(user_input/3600)
+time_hours = int(user_input//3600)
 user_input = user_input % 3600
 
-time_min = int(user_input/60)
+time_min = int(user_input//60)
 user_input = user_input % 60
 
 print(f'{time_hours} - {time_min} - {user_input}')

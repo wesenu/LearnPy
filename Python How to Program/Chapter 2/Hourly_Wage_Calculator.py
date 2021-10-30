@@ -13,6 +13,8 @@ years_bad = 2
 percentage_increase = 0.03
 
 current_wage = original_hour_wage*( 1+percentage_increase)**years_good
-current_wage = current_wage + original_hour_wage*( 1+(-percentage_increase))**years_bad
+diffirence_wage = current_wage - original_hour_wage*( 1+(-percentage_increase))**years_bad
+current_wage = current_wage +diffirence_wage
 
-print(f'{round(current_wage)} is the current wage after {years_good} years of good work and {years_bad} years of bad work')
+print("{:,.2f}".format(current_wage))
+print(f'is the current wage after {years_good} years of good work and {years_bad} years of bad work')
