@@ -37,8 +37,11 @@ def play_game():
         return True
 
 
-
 is_game_over = False
-
+correct_answer_counter = 0
 while(is_game_over != True):
     is_game_over = play_game()
+    if(is_game_over == False):
+        correct_answer_counter +=1
+
+print(f'Number of correct answers: {correct_answer_counter}')
