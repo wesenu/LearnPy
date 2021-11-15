@@ -19,7 +19,7 @@ def wrong_answer_encourage():
         print('No. Keep trying')
 
 def get_difficulty():
-    print('Enter your difficulty (1 Easy/2 Hard): ')
+    print('Enter your difficulty (1 Easy/2 Hard): ', end=" ")
     return get_user_input()
 
 def get_type():
@@ -68,7 +68,7 @@ def win_condition_div(user_input, num_one, num_two):
 
 def game_won_try_again():
     correct_answer_encourage()
-    print('Do you want to try again?: Y/y or N/n')
+    print('Do you want to try again?: Y/y or N/n', end=" ")
     play_again = input()
     if(play_again == 'Y' or play_again == 'y'):
         return True
@@ -84,6 +84,31 @@ def get_user_input():
     user_input = int(input())
     return user_input
 
+def checker(num_one, num_two, problem_type):
+    if(problem_type == 1):
+        is_won = win_condition_add(get_user_input(), num_one, num_two)
+    elif(problem_type == 2):
+        is_won = win_condition_sub(get_user_input(), num_one, num_two)
+    elif(problem_type == 3):
+        is_won = win_condition_mul(get_user_input(), num_one, num_two)
+    elif(problem_type == 4):
+        is_won = win_condition_div(get_user_input(), num_one, num_two)
+        
+            
+    if(is_won == False):
+        while(is_won != True):
+            if(problem_type == 1):
+                is_won = win_condition_add(game_wrong_answer(), num_one, num_two)
+            elif(problem_type == 2):
+                is_won = win_condition_sub(game_wrong_answer(), num_one, num_two)
+            elif(problem_type == 3):
+                is_won = win_condition_mul(game_wrong_answer(), num_one, num_two)
+            elif(problem_type == 4):
+                is_won = win_condition_div(game_wrong_answer(), num_one, num_two)
+            
+            if(is_won):
+                break
+    
 def start_game():
     problem_type = get_type()
     difficulty = get_difficulty()
@@ -92,47 +117,23 @@ def start_game():
     
     if(problem_type == 1):
         print(f'What is the Addition of {num_one} and {num_two}: ',end=" ")
-        is_won = win_condition_add(get_user_input(), num_one, num_two)
-        if(is_won == False):
-            while(is_won != True):
-                is_won = win_condition_add(game_wrong_answer(), num_one, num_two)
-                if(is_won):
-                    break
+        checker(num_one,num_two,problem_type)
         return game_won_try_again()
 
-    
-    
     elif(problem_type == 2):
         print(f'What is the Subtraction of {num_one} and {num_two}: ',end=" ")
-        is_won = win_condition_sub(get_user_input(), num_one, num_two)
-        if(is_won == False):
-            while(is_won != True):
-                is_won = win_condition_sub(game_wrong_answer(), num_one, num_two)
-                if(is_won):
-                    break
+        checker(num_one,num_two,problem_type)
         return game_won_try_again()
-    
-    
     
     elif(problem_type == 3):
         print(f'What is the Multiplication of {num_one} and {num_two}: ',end=" ")
-        is_won = win_condition_mul(get_user_input(), num_one, num_two)
-        if(is_won == False):
-            while(is_won != True):
-                is_won = win_condition_mul(game_wrong_answer(), num_one, num_two)
-                if(is_won):
-                    break
+        checker(num_one,num_two,problem_type)
         return game_won_try_again() 
     
     
     elif(problem_type == 4):
         print(f'What is the Division of {num_one} and {num_two}: ',end=" ")
-        is_won = win_condition_div(get_user_input(), num_one, num_two)
-        if(is_won == False):
-            while(is_won != True):
-                is_won = win_condition_div(game_wrong_answer(), num_one, num_two)
-                if(is_won):
-                    break
+        checker(num_one,num_two,problem_type)
         return game_won_try_again()
     
     if(is_won == True):
