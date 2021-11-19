@@ -1,7 +1,7 @@
 import random
 
 def correct_answer_encourage():
-    random_number = random.randrange(1,4)
+    random_number = random.randrange(1, 4)
     if(random_number == 1):
         print('Very Good')
     elif(random_number == 2):
@@ -10,7 +10,7 @@ def correct_answer_encourage():
         print('Keep up the good work!')
 
 def wrong_answer_encourage():
-    random_number = random.randrange(1,4)
+    random_number = random.randrange(1, 4)
     if(random_number == 1):
         print('No. Please try again')
     elif(random_number == 2):
@@ -19,7 +19,7 @@ def wrong_answer_encourage():
         print('No. Keep trying')
 
 def get_difficulty():
-    print('Enter your difficulty (1 Easy/2 Hard): ', end=" ")
+    print('Enter your difficulty (1 Easy/2 Hard): ', end = " ")
     return get_user_input()
 
 def get_type():
@@ -28,17 +28,17 @@ def get_type():
     print('3: Multiplication')
     print('4: Division')
     print('5: Mixture')
-    print("Enter Type for your problem: ", end=" ")
+    print("Enter Type for your problem: ", end = " ")
     return get_user_input()
 
 def generate_two_numbers(difficulty):
     if(difficulty == 1):
-        num_one = random.randrange(1,10)
-        num_two = random.randrange(1,10)
+        num_one = random.randrange(1, 10)
+        num_two = random.randrange(1, 10)
         
     elif(difficulty == 2):
-        num_one = random.randrange(1,100)
-        num_two = random.randrange(1,100)
+        num_one = random.randrange(1, 100)
+        num_two = random.randrange(1, 100)
         
     return (num_one, num_two)
     
@@ -68,7 +68,7 @@ def win_condition_div(user_input, num_one, num_two):
 
 def game_won_try_again():
     correct_answer_encourage()
-    print('Do you want to try again?: Y/y or N/n', end=" ")
+    print('Do you want to try again?: Y/y or N/n', end = " ")
     play_again = input()
     if(play_again == 'Y' or play_again == 'y'):
         return True
@@ -77,7 +77,7 @@ def game_won_try_again():
 
 def game_wrong_answer():
     wrong_answer_encourage()
-    print('Enter value again: ',end=" ")
+    print('Enter value again: ', end = " ")
     return get_user_input()
 
 def get_user_input():
@@ -116,24 +116,24 @@ def start_game():
     is_won = False
     
     if(problem_type == 1):
-        print(f'What is the Addition of {num_one} and {num_two}: ',end=" ")
-        checker(num_one,num_two,problem_type)
+        print(f'What is the Addition of {num_one} and {num_two}: ', end = " ")
+        checker(num_one, num_two, problem_type)
         return game_won_try_again()
 
     elif(problem_type == 2):
-        print(f'What is the Subtraction of {num_one} and {num_two}: ',end=" ")
-        checker(num_one,num_two,problem_type)
+        print(f'What is the Subtraction of {num_one} and {num_two}: ', end = " ")
+        checker(num_one, num_two, problem_type)
         return game_won_try_again()
     
     elif(problem_type == 3):
-        print(f'What is the Multiplication of {num_one} and {num_two}: ',end=" ")
-        checker(num_one,num_two,problem_type)
+        print(f'What is the Multiplication of {num_one} and {num_two}: ', end = " ")
+        checker(num_one, num_two, problem_type)
         return game_won_try_again() 
     
     
     elif(problem_type == 4):
-        print(f'What is the Division of {num_one} and {num_two}: ',end=" ")
-        checker(num_one,num_two,problem_type)
+        print(f'What is the Division of {num_one} and {num_two}: ', end = " ")
+        checker(num_one, num_two, problem_type)
         return game_won_try_again()
     
     if(is_won == True):
