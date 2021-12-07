@@ -25,7 +25,7 @@ list2 = [40, 50]
 list3 = list1 + list2
 print(f'This is list 1 {list1}')
 print(f'This is list 2 {list2}')
-print(f'This is list 3 after concatating {list3}')
+print(f'This is list 3 after concatenating {list3}')
 
 print()
 print()
@@ -36,9 +36,17 @@ print(numbers)
 numbers +=(6,7)
 print(numbers)
 
+number1 = 90
+number2 = 30
+print("num1:", number1)
+print("num2:",number2)
+number1, number2 = (number2, number1)
+print(f'{number2} that num2 and {number1} is num1')
 
 print()
 print()
 
 colors = ['red', 'blue', 'yellow']
 print(list(enumerate(colors)))
+for index, value in enumerate(colors):
+    print(f"{index},{value}")
