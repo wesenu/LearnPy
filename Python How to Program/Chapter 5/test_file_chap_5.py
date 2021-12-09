@@ -50,3 +50,5 @@ colors = ['red', 'blue', 'yellow']
 print(list(enumerate(colors)))
 for index, value in enumerate(colors):
     print(f"{index},{value}")
+    
+    
