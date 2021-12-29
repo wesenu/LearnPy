@@ -1,18 +1,9 @@
-# Write a function that accepts a string as input
-# isolates the different unique letters
-
-
-# ignore ignoring punctuation, spaces, and case sensitivity
-# use lower() for case sensitive string
-
 import string
 
-def GetKey(myInput):
-    return myInput.translate(None, string.punctuation)
 
-
-
-user_input = input('Enter your string: ')
-
-new_user_input = GetKey(user_input)
-print(new_user_input)
+def get_key(my_input):
+    exclude = set(string.punctuation)
+    new_string = ''.join(ch for ch in my_input if ch not in exclude)
+    new_string = new_string.replace(" ", "")
+    new_string = list(set(new_string) and set(string.ascii_lowercase))
+    return list(new_string)
